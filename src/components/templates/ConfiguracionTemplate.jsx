@@ -5,22 +5,15 @@ import {
   DataModulosJugador,
 } from "../../utils/dataEstatica";
 
-import { Fondoanimado } from "../organismos/Fondoanimado";
 import { Icon } from "@iconify/react/dist/iconify.js";
-import { PowerBy } from "../moleculas/PowerBy";
 import { Device } from "../../styles/breakpoints";
-import { DataUser } from "../organismos/DataUser";
-import { CardJuego } from "../organismos/CardJuego";
 import { flotar } from "../../styles/keyframes";
+import { CardJuego } from "../organismos/CardJuego";
+import { DataUser } from "../organismos/DataUser";
+import { Fondoanimado } from "../organismos/Fondoanimado";
 export function ConfiguracionTemplate() {
   return (
     <Container>
-      <Contentselect>
-        <span className="titulo">PUERQUIZ</span>
-        <span className="frase">Administra tus juegos</span>
-        <Icon className="iconofuego" icon="fluent-emoji:eggplant" />
-        <PowerBy />
-      </Contentselect>
       <DataUser />
       <Main>
         <section className="area1">
@@ -87,6 +80,7 @@ const Main = styled.section`
     display: flex;
     flex-direction: column;
     position: relative;
+    align-items: center;
 
     .header {
       display: flex;
@@ -110,10 +104,10 @@ const Main = styled.section`
       margin: auto;
       opacity: 0.1;
       animation: none;
-      width:50%;
+      width: 50%;
       @media ${Device.tablet} {
         animation: ${flotar} 3s ease-in-out infinite;
-        width:50%;
+        width: 50%;
       }
     }
   }

@@ -23,12 +23,12 @@ export const AuthContextProvider = ({ children }) => {
     if (response) {
       return;
     } else {
-     const puser = {
-      nombres:p.email,
-      correo:p.email,
-      id_auth_supabase:p.id
+      const puser = {
+        names: p.email,
+        email: p.email,
+        id_auth_supabase: p.id,
       };
-       await InsertarUsuario(puser);
+      await InsertarUsuario(puser);
     }
   }
   return (

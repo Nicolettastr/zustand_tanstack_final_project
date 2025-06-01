@@ -1,19 +1,12 @@
-import styled from "styled-components";
-import {
-  UserAuth,
-
-
-  Btnsave,
-} from "../../index";
 import { Icon } from "@iconify/react/dist/iconify.js";
+import styled from "styled-components";
+import { Btnsave, UserAuth } from "../../index";
 import { useAuthSore } from "../../store/AuthStore";
 
 export function DataUser() {
-
-
   const { user } = UserAuth();
-  const {cerrarSesion} = useAuthSore()
-  
+  const { cerrarSesion } = useAuthSore();
+
   return (
     <Container>
       <div className="imgContainer">
@@ -21,25 +14,29 @@ export function DataUser() {
       </div>
 
       <span className="nombre">{user.email}</span>
-      <Btnsave funcion={cerrarSesion} color="#fff" titulo="salir" bgcolor="#5603ef" icono={<Icon icon="jam:log-out" />} />
+      <Btnsave
+        funcion={cerrarSesion}
+        color="#fff"
+        titulo="salir"
+        bgcolor="#5603ef"
+        icono={<Icon icon="jam:log-out" />}
+      />
     </Container>
   );
 }
 const Container = styled.div`
-  position: absolute;
-  top: 220px;
-  left: 0;
-  right: 0;
   height: 50px;
-  margin: auto;
-  width: 350px;
+  position: absolute;
+  margin: 1rem;
+  width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  padding: 8px;
+  padding: 3rem;
   border-radius: 50px;
-  color:#fff;
+  color: #fff;
   cursor: pointer;
+  top: 2%;
 
   .imgContainer {
     height: 40px;
@@ -50,7 +47,7 @@ const Container = styled.div`
     overflow: hidden;
     margin-right: 22px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     img {
       width: 100%;
@@ -58,7 +55,6 @@ const Container = styled.div`
     }
   }
   &:hover {
-   
   }
   .nombre {
     width: 100%;

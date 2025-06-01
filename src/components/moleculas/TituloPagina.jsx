@@ -1,18 +1,13 @@
 import styled from "styled-components";
 
 export function TituloPagina() {
-  return (
-    <Container>
-      Puerquizz 
-     
-    </Container>
-  );
+  return <Container>quizz</Container>;
 }
 const Container = styled.span`
-z-index:1;
+  z-index: 1;
   display: inline-block;
   color: white;
-  font-family:  "Finger Paint";
+  font-family: "Finger Paint";
   font-size: 16vw;
   text-shadow: 0.03em 0.03em 0 rgba(61, 61, 61, 0.3);
 

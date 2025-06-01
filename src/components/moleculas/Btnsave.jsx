@@ -7,15 +7,19 @@ export function Btnsave({
   icono,
   url,
   color,
-  disabled,width,position
+  disabled,
+  width,
+  position,
 }) {
   return (
-    <Container $position={position} $width={width}
+    <Container
+      $position={position}
+      $width={width}
       disabled={disabled}
       $color={color}
       type="submit"
       $bgcolor={bgcolor}
-      onClick={funcion} 
+      onClick={funcion}
     >
       <section className="content">
         <Icono $color={color}>{icono}</Icono>
@@ -34,7 +38,7 @@ const Container = styled.button`
   font-weight: 700;
   display: flex;
   font-size: 15px;
-  padding: 10px 25px;
+  padding: 4px 25px;
   border-radius: 16px;
   background-color: ${(props) => props.$bgcolor};
   border: 2px solid rgba(50, 50, 50, 0.2);
@@ -46,9 +50,9 @@ const Container = styled.button`
   color: ${(props) => props.$color};
   align-items: center;
   justify-content: center;
- width:${(props)=>props.$width};
- position:${(props)=>props.$position};
- z-index:2;
+  width: ${(props) => props.$width};
+  position: ${(props) => props.$position};
+  z-index: 2;
   .content {
     display: flex;
     gap: 12px;

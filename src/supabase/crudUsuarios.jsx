@@ -1,14 +1,13 @@
-
 import { supabase } from "../index";
-const tabla = "usuarios";
+const tabla = "users";
 export async function InsertarUsuario(p) {
-  const {error} = await supabase.from(tabla).insert(p);
+  const { error } = await supabase.from(tabla).insert(p);
   if (error) {
-   console.log(error.message)
+    console.log(error.message);
     return;
   }
- }
- export async function MostrarUsuarios(p) {
+}
+export async function MostrarUsuarios(p) {
   const { data } = await supabase
     .from(tabla)
     .select()

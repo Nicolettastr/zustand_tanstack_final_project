@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { Device, v, BtnCerrar } from "../../index";
-export function ListaGenerica({ data, setState, funcion, scroll,bottom }) {
+import { BtnCerrar, Device } from "../../index";
+export function ListaGenerica({ data, setState, funcion, scroll, bottom }) {
   function seleccionar(p) {
     funcion(p);
     setState();
@@ -15,7 +15,7 @@ export function ListaGenerica({ data, setState, funcion, scroll,bottom }) {
           return (
             <ItemContainer key={index} onClick={() => seleccionar(item)}>
               <span>💎</span>
-              <span>{item.nombre}</span>
+              <span>{item.name}</span>
             </ItemContainer>
           );
         })}
@@ -30,15 +30,15 @@ const Container = styled.div`
   color: ${({ theme }) => theme.text};
   position: absolute;
   margin-bottom: 15px;
-  bottom: ${(props)=>props.$bottom};
+  bottom: ${(props) => props.$bottom};
   width: 100%;
   padding: 10px;
   border-radius: 10px;
   gap: 10px;
   z-index: 3;
- 
-  overflow:hidden;
-  overflow-y:auto;
+
+  overflow: hidden;
+  overflow-y: auto;
   @media ${() => Device.tablet} {
     width: 400px;
   }

@@ -1,16 +1,16 @@
-import { useEffect, useState } from "react";
+import { useMutation } from "@tanstack/react-query";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
 import styled from "styled-components";
-import { v } from "../../../styles/variables";
 import {
-  InputText,
   Btnsave,
-  Selector,
+  InputText,
   ListaGenerica,
+  Selector,
   useNivelesStore,
   usePreguntasVerdadBebida,
 } from "../../../index";
-import { useForm } from "react-hook-form";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { v } from "../../../styles/variables";
 
 export function RegistrarVerdadobebida({ onClose, dataSelect, accion }) {
   //#region HOOKS REACT
@@ -33,15 +33,15 @@ export function RegistrarVerdadobebida({ onClose, dataSelect, accion }) {
       if (accion === "Editar") {
         const p = {
           id: itemPreguntaSelect.id,
-          pregunta: data.pregunta,
-          id_nivel: nivelesItemSelect.id,
+          question: data.question,
+          id_level: nivelesItemSelect.id,
         };
         await editarpreguntas(p);
         onClose();
       } else {
         const p = {
-          pregunta: data.pregunta,
-          id_nivel: nivelesItemSelect.id,
+          question: data.question,
+          id_level: nivelesItemSelect.id,
         };
         await insertarPreguntas(p);
 
@@ -85,15 +85,15 @@ export function RegistrarVerdadobebida({ onClose, dataSelect, accion }) {
                 <InputText icono={<v.iconomarca />}>
                   <textarea
                     className="form__field"
-                    defaultValue={dataSelect.pregunta}
+                    defaultValue={dataSelect.question}
                     type="text"
                     placeholder=""
-                    {...register("pregunta", {
+                    {...register("question", {
                       required: true,
                     })}
                   />
                   <label className="form__label">pregunta</label>
-                  {errors.pregunta?.type === "required" && (
+                  {errors.question?.type === "required" && (
                     <p>Campo requerido</p>
                   )}
                 </InputText>
@@ -103,7 +103,7 @@ export function RegistrarVerdadobebida({ onClose, dataSelect, accion }) {
               </ContainerCategoria>
 
               <Selector
-                texto1={nivelesItemSelect?.nombre}
+                texto1={nivelesItemSelect?.name}
                 funcion={() => setStateniveles(!stateniveles)}
                 color="#19e152"
               />

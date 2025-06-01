@@ -1,8 +1,3 @@
-import styled from "styled-components";
-import { ContentAccionesTabla, Paginacion, useNivelesStore, usePreguntasVerdadBebida } from "../../../index";
-import Swal from "sweetalert2";
-import { v } from "../../../styles/variables";
-import { useState } from "react";
 import {
   flexRender,
   getCoreRowModel,
@@ -11,7 +6,17 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
+import { useState } from "react";
 import { FaArrowsAltV } from "react-icons/fa";
+import styled from "styled-components";
+import Swal from "sweetalert2";
+import {
+  ContentAccionesTabla,
+  Paginacion,
+  useNivelesStore,
+  usePreguntasVerdadBebida,
+} from "../../../index";
+import { v } from "../../../styles/variables";
 export function TablaVerdadobebida({
   data,
   SetopenRegistro,
@@ -22,8 +27,8 @@ export function TablaVerdadobebida({
   const [pagina, setPagina] = useState(1);
   const [datas, setData] = useState(data);
   const [columnFilters, setColumnFilters] = useState([]);
-  const {selectNiveles} = useNivelesStore()
-  const {eliminarPreguntas} = usePreguntasVerdadBebida()
+  const { selectNiveles } = useNivelesStore();
+  const { eliminarPreguntas } = usePreguntasVerdadBebida();
 
   function eliminar(p) {
     Swal.fire({
@@ -36,20 +41,19 @@ export function TablaVerdadobebida({
       confirmButtonText: "Si, eliminar",
     }).then(async (result) => {
       if (result.isConfirmed) {
-         await eliminarPreguntas({id:p.id})
+        await eliminarPreguntas({ id: p.id });
       }
     });
   }
   function editar(data) {
-    
-    selectNiveles(data.niveles_verdad_bebida)
+    selectNiveles(data.levels_true_drink);
     SetopenRegistro(true);
     setdataSelect(data);
     setAccion("Editar");
   }
   const columns = [
     {
-      accessorKey: "pregunta",
+      accessorKey: "question",
       header: "Pregunta",
       cell: (info) => <span>{info.getValue()}</span>,
       enableColumnFilter: true,
@@ -60,7 +64,7 @@ export function TablaVerdadobebida({
       },
     },
     {
-      accessorKey: "niveles_verdad_bebida.nombre",
+      accessorKey: "levels_true_drink.nombre",
       header: "Nivel",
       cell: (info) => <span>{info.getValue()}</span>,
       enableColumnFilter: true,
